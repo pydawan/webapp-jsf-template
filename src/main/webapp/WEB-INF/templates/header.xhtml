@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:p="http://primefaces.org/ui">
+<ui:composition>
+   <h:form
+      id="form-layout"
+      prependId="false">
+      <p:growl
+         id="mensagens"
+         showDetail="false"
+         sticky="false" />
+      <p:menubar id="menu">
+         <p:menuitem
+            id="mi-admin-home"
+            value="WebApp JSF"
+            icon="fa fa-fw fa-car fa-lg"
+            url="/admin/" />
+         <p:submenu
+            label="Cadastros"
+            icon="fa fa-fw fa-pencil">
+            <p:menuitem
+               id="mi-cadastro-marca"
+               value="Cadastro de Marcas"
+               icon="fa fa-fw fa-file-o"
+               url="/admin/marcas/" />
+            <p:separator />
+            <p:menuitem
+               id="mi-cadastro-modelo"
+               value="Cadastro de Modelos"
+               icon="fa fa-fw fa-file-o"
+               url="/admin/modelos/" />
+            <p:separator />
+            <p:menuitem
+               id="mi-cadastro-veiculo"
+               value="Cadastro de Veículos"
+               icon="fa fa-fw fa-file-o"
+               url="/admin/veiculos/" />
+         </p:submenu>
+         <p:submenu
+            label="Relatórios"
+            icon="fa fa-fw fa-file">
+            <p:menuitem
+               id="mi-relatorio-marcas"
+               value="Relatório de Marcas"
+               icon="fa fa-fw fa-bus" />
+            <p:menuitem
+               id="mi-relatorio-modelos"
+               value="Relatório de Modelos"
+               icon="fa fa-fw fa-bus" />
+            <p:menuitem
+               id="mi-relatorio-veiculos"
+               value="Relatório de Veículos"
+               icon="fa faw-fw fa-bus" />
+         </p:submenu>
+         <p:submenu
+            label="Ajuda"
+            icon="fa fa-question-circle">
+            <p:menuitem
+               id="mi-ajuda-tutorial"
+               value="Manual do Usuário"
+               icon="fa fa-fw fa-file"
+               onclick="PF('di-manual-usuario').show()" />
+         </p:submenu>
+         <p:submenu
+            id="sair"
+            label="#{usuario}"
+            icon="fa fa-fw fa-user"
+            style="float: right">
+            <p:menuitem
+               value="Sair"
+               icon="fa fa-fw fa-sign-out "
+               actionListener="#{autenticacao.sair}">
+            </p:menuitem>
+         </p:submenu>
+      </p:menubar>
+      <p:tooltip
+         value='Página inicial.'
+         position="bottom" />
+   </h:form>
+   <h1 class="system-name center">
+      <ui:insert name="system-name">JSF Web Application Template</ui:insert>
+   </h1>
+   <h3 class="page-name center">
+      <ui:insert name="page-name">Início</ui:insert>
+   </h3>
+</ui:composition>
+</html>

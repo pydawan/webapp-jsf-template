@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html
+   xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui"
+   xmlns:b="http://bootsfaces.net/ui"
+   xmlns:o="http://omnifaces.org/ui"
+   xmlns:of="http://omnifaces.org/functions"
+   xmlns:aj="http://www.animatejsf.org/animate"
+   xmlns:ct="http://www.chartistjsf.org/charts"
+   xmlns:mp="http://primefaces.org/ui/material">
+<ui:insert name="head">
+   <h:head>
+      <!--
+        <f:metadata>
+            <o:enableRestorableView />
+        </f:metadata>
+        -->
+      <ui:insert name="meta">
+         <ui:insert name="charset">
+            <meta charset="UTF-8" />
+         </ui:insert>
+         <ui:insert name="author">
+            <meta
+               name="author"
+               content="Thiago Alexandre Martins Monteiro" />
+         </ui:insert>
+         <ui:insert name="viewport">
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0" />
+         </ui:insert>
+         <ui:insert name="mobile">
+            <meta
+               name="apple-mobile-web-app-capable"
+               content="yes" />
+         </ui:insert>
+      </ui:insert>
+      <ui:insert name="css">
+         <h:outputStylesheet
+            library="css"
+            name="normalize.css" />
+         <h:outputStylesheet
+            library="css"
+            name="webapp.css" />
+         <h:outputStylesheet
+            library="webjars"
+            name="font-awesome-animation/0.0.10/dist/font-awesome-animation.min.css" />
+         <ui:insert name="favicon">
+            <link
+               rel="shortcut icon"
+               href="#{request.contextPath}/resources/imagens/favicon.ico"
+               type="image/x-icon" />
+            <link
+               rel="icon"
+               href="#{request.contextPath}/resources/imagens/favicon.ico"
+               type="image/x-icon" />
+         </ui:insert>
+         <ui:insert name="font">
+            <link
+               href="https://fonts.googleapis.com/css?family=Archivo+Black"
+               rel="stylesheet" />
+         </ui:insert>
+      </ui:insert>
+      <ui:insert name="custom.css" />
+      <ui:insert name="js">
+         <h:outputScript
+            library="js"
+            name="webapp.js" />
+         <h:outputScript
+            library="js"
+            name="pesquisa.js" />
+         <h:outputScript
+            library="js"
+            name="mensagem.js" />
+         <h:outputScript
+            library="js"
+            name="locale.js" />
+      </ui:insert>
+      <ui:insert name="head.js" />
+      <ui:insert name="title">
+         <title>WebApp JSF | JSF Web Application Template</title>
+      </ui:insert>
+   </h:head>
+</ui:insert>
+<ui:insert name="body">
+   <h:body>
+      <ui:insert name="container">
+         <div id="page">
+            <div id="header">
+               <ui:insert name="header">
+                  <ui:include src="/WEB-INF/templates/header.xhtml" />
+               </ui:insert>
+            </div>
+            <div id="content">
+               <p:ajaxStatus styleClass="ajax-status">
+                  <f:facet name="start">
+                     <p align="center">
+                        <i
+                           class="fa fa-spinner fa-pulse fa-4x fa-fw"
+                           aria-hidden="true"></i>
+                     </p>
+                     <p align="center">Carregando...</p>
+                  </f:facet>
+                  <f:facet name="complete">
+                     <h:outputText value="" />
+                  </f:facet>
+               </p:ajaxStatus>
+               <ui:insert name="content">
+                  <ui:include src="/WEB-INF/templates/content.xhtml" />
+               </ui:insert>
+            </div>
+            <div id="footer">
+               <ui:insert name="footer">
+                  <ui:include src="/WEB-INF/templates/footer.xhtml" />
+               </ui:insert>
+            </div>
+         </div>
+         <div id="ajuda">
+            <p:dialog
+               id="di-manual-usuario"
+               widgetVar="di-manual-usuario"
+               resizable="false"
+               draggable="false"
+               responsive="true"
+               maximizable="false"
+               minimizable="false"
+               modal="true"
+               showEffect="slide"
+               appendToBody="false"
+               width="75%"
+               height="600"
+               header="MANUAL DO USUÁRIO (WebApp JSF)">
+               <p:outputPanel>
+                  <iframe
+                     id="manual-usuario"
+                     name="manual-usuario"
+                     width="100%"
+                     height="600px"
+                     src="https://www.primefaces.org/docs/guide/primefaces_user_guide_5_0.pdf" />
+               </p:outputPanel>
+            </p:dialog>
+         </div>
+      </ui:insert>
+      <ui:insert name="body.js" />
+   </h:body>
+</ui:insert>
+</html>

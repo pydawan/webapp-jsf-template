@@ -1,0 +1,106 @@
+apply plugin: 'eclipse-wtp'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+archivesBaseName = 'webapp-jsf-template'
+group = 'br.org.webapp.jsf'
+version = 'v1.0.0-SNAPSHOT'
+
+eclipse {
+   wtp {
+      component {
+         contextPath = 'webapp-jsf'
+      }
+      facet {
+         facet name: 'java', version: '1.8'
+         facet name: 'jst.web', version: '3.0'
+      }
+   }
+}
+
+eclipse.project {
+   natures 'org.springsource.ide.eclipse.gradle.core.nature'
+}
+
+repositories {
+   mavenLocal()
+   mavenCentral()
+   maven { url 'http://repository.primefaces.org' }
+   maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+   
+   compile 'org.projectlombok:lombok:1.16.18'
+   compile 'io.vavr:vavr:0.9.0'
+   compile 'org.slf4j:slf4j-api:1.7.10'
+   compile 'org.slf4j:slf4j-log4j12:1.7.10'
+   compile 'log4j:log4j:1.2.17'
+   compile 'com.mihnita:color-loggers:1.0.5'
+   compile 'org.lazyluke:log4jdbc-remix:0.2.7'
+   compile 'javax.servlet:javax.servlet-api:3.1.0'
+   compile 'jstl:jstl:1.2'
+   compile 'com.sun.faces:jsf-api:2.2.14'
+   compile 'com.sun.faces:jsf-impl:2.2.14'
+   compile 'org.primefaces:primefaces:6.1'
+   compile 'com.github.adminfaces:admin-theme:1.0.0-RC9'
+   compile 'com.github.materialPrime:material-prime:v0.0.2'
+   compile 'net.bootsfaces:bootsfaces:1.1.3'
+   compile 'org.animatejsf:animatejsf:1.1'
+   compile 'org.chartistjsf:ChartistJSF:3.0'
+   compile 'org.ocpsoft.rewrite:rewrite-servlet:3.4.1.Final'
+   compile 'org.ocpsoft.rewrite:rewrite-config-prettyfaces:3.4.1.Final'
+   compile 'org.omnifaces:omnifaces:1.8.1'
+   compile 'org.apache.poi:poi:3.15'
+   compile 'org.apache.poi:poi-ooxml:3.13'
+   compile 'com.lowagie:itext:2.1.7'
+   compile 'net.sf.jasperreports:jasperreports:6.1.1'
+   compile 'org.apache.shiro:shiro-core:1.3.2'
+   compile 'org.apache.shiro:shiro-web:1.3.2'
+   compile 'org.fusesource.jansi:jansi:1.16'
+   compile 'org.springframework:spring-webmvc:4.3.5.RELEASE'
+   compile 'com.fasterxml.jackson.core:jackson-core:2.8.7'
+   compile 'com.fasterxml.jackson.core:jackson-databind:2.8.7'
+   compile 'com.thedeanda:lorem:2.1'
+   compile 'org.apache.commons:commons-email:1.3.3'
+   compile 'com.opencsv:opencsv:3.3'
+   compile 'com.owlike:genson:1.4'
+   compile 'com.mashape.unirest:unirest-java:1.4.9'
+   compile 'org.yaml:snakeyaml:1.18'
+   compile 'org.webjars.bower:font-awesome-animation:0.0.10'
+   
+   compile files('./src/main/webapp/WEB-INF/lib/config-parser-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/verify-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/jext-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/jsf-util-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/jsf-search-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/jsf-crud-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/jedi-app-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/jedi-orm-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/pickle-v1.0.0.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/arial.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/times.jar')
+   compile files('./src/main/webapp/WEB-INF/lib/livereload-jvm-0.2.0-onejar.jar')
+   
+   testCompile 'junit:junit:4.12'
+   testCompile 'org.hamcrest:hamcrest-library:1.3'
+   testCompile 'com.github.database-rider:rider-parent:1.2.0'
+   testCompile 'br.com.six2six:fixture-factory:3.1.0'
+   testCompile 'br.com.six2six:bfgex:1.0'
+   testCompile 'org.hamcrest:java-hamcrest:2.0.0.0'
+   testCompile 'com.github.javafaker:javafaker:0.12'
+   testCompile 'io.codearte.jfairy:jfairy:0.5.3'
+   testCompile 'com.github.mirreck:java-fake-factory:1.0.2'
+   testCompile 'com.github.regis-leray:factory-duke:0.8'
+   testCompile 'ie.corballis:json-fixtures-lib:1.0.4'
+   testCompile 'commons-io:commons-io:2.4'
+   
+}
+
+configurations.all {
+   exclude module: 'slf4j-log4j12'
+   exclude module: 'slf4j-simple'
+}
+
